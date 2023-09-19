@@ -1,7 +1,4 @@
-let round = SingleRound();
-if (round === "Tie") console.log("It's a tie!");
-else if (round === 1) console.log("You win!");
-else if (round === 2) console.log("Computer wins!");
+Game();
 
 function GetComputerChoice() {
     return ParseChoice(Math.floor(Math.random() * 3) + 1);
@@ -33,10 +30,33 @@ function SingleRound() {
     let computerChoice = GetComputerChoice();
     console.log(computerChoice);
     let playerChoice = GetPlayerChoice();
-    return DetermineWinner(playerChoice, computerChoice);
+    return DetermineRoundWinner(playerChoice, computerChoice);
 }
 
-function DetermineWinner(player1, player2) {
+function Game() {
+    let round;
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 1; i <= 5; i++) {
+        round = SingleRound();
+        if (round === "Tie") console.log("It's a tie!");
+        else if (round === 1) {
+            console.log("You win!");
+            playerScore++;
+        } else if (round === 2) {
+            console.log("Computer wins!");
+            computerScore++;
+        }
+        console.log(`The score is: You - ${playerScore}, Computer - ${computerScore}`);
+    }
+    if (playerScore > computerScore) {
+        console.log("You win!");
+    } else if (computerScore > playerScore) {
+        console.log("Computer wins!");
+    } else console.log("Not sure what happened! Tie?");
+}
+
+function DetermineRoundWinner(player1, player2) {
     if (player1 === player2) return "Tie";
     switch(player1) {
         case "Rock":
