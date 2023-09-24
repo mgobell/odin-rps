@@ -1,5 +1,14 @@
-Game();
-
+// Game();
+AddEventHandlers();
+function AddEventHandlers() {
+    const scissorsButton = document.querySelector('#scissors');
+    const rockButton = document.querySelector('#rock');
+    const paperButton = document.querySelector('#paper');
+    scissorsButton.addEventListener('click', () => console.log('Scissors (Fire)'));
+    rockButton.addEventListener('click', () => console.log('Rock (Water)'));
+    paperButton.addEventListener('click', () => console.log('Paper (Grass)'));
+    
+}
 function GetComputerChoice() {
     return ParseChoice(Math.floor(Math.random() * 3) + 1);
 }
@@ -37,7 +46,7 @@ function Game() {
     let round;
     let playerScore = 0;
     let computerScore = 0;
-    for (let i = 1; i <= 5; i++) {
+    // for (let i = 1; i <= 5; i++) {
         round = SingleRound();
         if (round === "Tie") console.log("It's a tie!");
         else if (round === 1) {
@@ -48,7 +57,7 @@ function Game() {
             computerScore++;
         }
         console.log(`The score is: You - ${playerScore}, Computer - ${computerScore}`);
-    }
+    // }
     if (playerScore > computerScore) {
         console.log("You win!");
     } else if (computerScore > playerScore) {
