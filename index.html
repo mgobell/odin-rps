@@ -3,15 +3,22 @@
     <head>
         <meta charset="utf-8">
         <title>Rock-Paper-Scissors Game for Odin Project</title>
+        <link rel="stylesheet" href="styles.css">
         <script src="game.js" defer></script>
     </head>
     <body>
-        <div id="choice-container">
-            <button id="scissors">Fire</button>
-            <button id="rock">Water</button>
-            <button id="paper">Grass</button>
+        <div id="content">
+            <div id="container">
+                <button id="start" class="start-button visible">START</button>
+                <button id="scissors" class="game-button hidden">Fire</button>
+                <button id="rock" class="game-button hidden">Water</button>
+                <button id="paper" class="game-button hidden">Grass</button>
+            </div>
+            <div id="choices-made"></div>
+            <div id="round-results"></div>
+            <div id="score"></div>
+            <div id="game-results"></div>
         </div>
-        <div id="score"></div>
     </body>
     
 </html>
